@@ -1,0 +1,44 @@
+apply from: "$rootDir/dependencies.gradle"
+
+android {
+
+  defaultConfig {
+
+    versionCode configs.versionCode
+    versionName configs.versionName
+
+    applicationId configs.applicationId
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+
+    debug {
+      applicationIdSuffix ".debug"
+      debuggable true
+      minifyEnabled false
+    }
+
+    release {
+      debuggable false
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+dependencies {
+
+  implementation project(":module-injector")
+  implementation project(":core")
+  implementation project(":core-db")
+  implementation project(":core-network")
+  implementation project(":core-navigation")
+
+
+  implementation project(":feature-transactions")
+  implementation project(":feature-transactions-api")
+  implementation project(":feature-products")
+  implementation project(":feature-products-api")
+
+
+}

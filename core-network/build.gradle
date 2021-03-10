@@ -1,0 +1,20 @@
+apply from: "$rootDir/dependencies.gradle"
+
+dependencies {
+
+  implementation project(":module-injector")
+
+  //Retrofit2
+  api libs.retrofit
+  api libs.retrofitMoshi
+
+  //Moshi
+  api libs.moshi
+  kapt libs.moshiCodegen
+  api libs.moshiAdapter
+
+  //Okhttp3
+  implementation libs.okhttp
+  implementation libs.okhttpInterceptor
+
+}

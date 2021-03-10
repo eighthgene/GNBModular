@@ -1,0 +1,22 @@
+apply from: "$rootDir/dependencies.gradle"
+
+dependencies {
+
+  implementation project(":module-injector")
+
+  implementation libs.appCompat
+  implementation libs.core
+
+  //Jetpack
+  implementation libs.material
+  implementation libs.constraints
+  implementation libs.activity
+  implementation libs.fragment
+  implementation libs.lifecycleExt
+  implementation libs.viewModel
+  implementation libs.livedata
+  implementation libs.recyclerview
+
+
+
+}

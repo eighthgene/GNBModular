@@ -1,0 +1,12 @@
+apply from: "$rootDir/dependencies.gradle"
+
+dependencies {
+
+  implementation project(":module-injector")
+
+  //Database
+  api libs.roomRuntime
+  kapt libs.roomCompiler
+  implementation libs.room
+
+}

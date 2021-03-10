@@ -1,0 +1,11 @@
+apply from: "$rootDir/dependencies.gradle"
+
+dependencies {
+
+  implementation project(":module-injector")
+
+  //Navigation
+  api libs.navigation
+  api libs.navigationUI
+
+}

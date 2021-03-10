@@ -1,0 +1,16 @@
+include ':app'
+include ':module-injector'
+
+include ':core'
+include ':core-network'
+include ':core-db'
+include ':core-navigation'
+
+include ':feature-transactions'
+include ':feature-transactions-api'
+
+include ':feature-products'
+include ':feature-products-api'
+
+
+rootProject.name = "GNBTrades Modular"

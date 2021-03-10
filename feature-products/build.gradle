@@ -1,0 +1,13 @@
+apply from: "$rootDir/dependencies.gradle"
+
+dependencies {
+  implementation project(":feature-products-api")
+  implementation project(":feature-transactions-api")
+  implementation project(":module-injector")
+
+  implementation project(":core")
+  implementation project(":core-db")
+  implementation project(":core-network")
+  implementation project(":core-navigation")
+
+}
