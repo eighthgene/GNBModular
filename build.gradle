@@ -68,9 +68,11 @@ subprojects {
     // Kotlin
     implementation libs.kotlin
 
-    // Dagger
-    api libs.dagger
-    kapt libs.daggerCompiler
+    // Koin
+    api libs.koin
+    api libs.koinCore
+    api libs.koinViewModel
+    api libs.koinScope
     
     // Coroutines
     implementation libs.coroutinesCore

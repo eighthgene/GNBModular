@@ -8,17 +8,14 @@ import androidx.fragment.app.Fragment
 import com.home.seleccion.oleg.core_navigation.navigation.FeatureRouter
 import com.home.seleccion.oleg.core_navigation.navigation.NavigationFlow
 import com.home.seleccion.oleg.gnbtradesmodular.R
-import com.home.seleccion.oleg.gnbtradesmodular.di.AppComponent
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
 
 class SplashFragment : Fragment() {
 
-    @Inject
-    lateinit var featureRouter: FeatureRouter
+    private val featureRouter: FeatureRouter by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppComponent.get().inject(this)
     }
 
     override fun onCreateView(

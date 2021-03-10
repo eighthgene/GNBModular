@@ -1,26 +1,20 @@
 package com.home.seleccion.oleg.feature_transactions.presentation.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.home.seleccion.oleg.feature_transactions.R
-import com.home.seleccion.oleg.feature_transactions.di.TransactionsComponentHolder
 import com.slashmobility.seleccion.oleg.feature_products_api.domain.ProductsInteractor
 import kotlinx.android.synthetic.main.fragment_first_flow.*
+import org.koin.android.ext.android.inject
 import timber.log.Timber
-import javax.inject.Inject
 
 
 class FirstFlowFragment : Fragment(R.layout.fragment_first_flow) {
 
-    @Inject
-    lateinit var productsInteractor: ProductsInteractor
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        TransactionsComponentHolder.getComponent().inject(this)
-    }
+    private val productsInteractor: ProductsInteractor by inject()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

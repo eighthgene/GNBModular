@@ -1,29 +1,36 @@
 package com.home.seleccion.oleg.gnbtradesmodular
 
 import android.app.Application
-import android.content.Context
-import com.home.seleccion.oleg.gnbtradesmodular.di.AppComponent
-import com.home.seleccion.oleg.gnbtradesmodular.di.DaggerAppComponent
+import com.home.seleccion.oleg.feature_products.di.productsModule
+import com.home.seleccion.oleg.feature_transactions.di.transactionsModule
+import com.home.seleccion.oleg.gnbtradesmodular.di.api.productsApi
+import com.home.seleccion.oleg.gnbtradesmodular.di.api.transactionsApi
+import com.home.seleccion.oleg.gnbtradesmodular.di.routerModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 import timber.log.Timber
 
 class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        appContext = applicationContext
+        //appContext = applicationContext
 
         Timber.plant(Timber.DebugTree())
 
-        AppComponent.init(
-            DaggerAppComponent
-                .builder()
-                .build()
-        )
+
+        startKoin {
+            androidContext(this@App)
+            if (BuildConfig.DEBUG) androidLogger(Level.DEBUG)
+            modules(appModules + featureModules + apiModules)
+        }
     }
 
-    companion object {
-        @Volatile
-        lateinit var appContext: Context
-            private set
-    }
 }
+
+
+val appModules = listOf(routerModule)
+val featureModules = listOf(transactionsModule, productsModule)
+val apiModules = listOf(productsApi, transactionsApi)
